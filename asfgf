@@ -1,0 +1,70 @@
+=> 
+[[32m#<Photo:0x00007f4d0d6511a0[0m
+  id: [34m[1m1[0m,
+  title: [31m[1m"[0m[31msantarems[0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31muma terra muito gira[0m[31m[1m"[0m,
+  created_at: Sat, 04 May 2024 21:28:21.400380000 UTC +00:00,
+  updated_at: Sat, 04 May 2024 21:29:36.747818000 UTC +00:00,
+  image_data: [36m[1mnil[0m[32m>[0m,
+ [32m#<Photo:0x00007f4d0d641138[0m
+  id: [34m[1m2[0m,
+  title: [31m[1m"[0m[31m[1m"[0m,
+  description: [36m[1mnil[0m,
+  created_at: Sun, 12 May 2024 20:07:40.295374000 UTC +00:00,
+  updated_at: Sun, 12 May 2024 20:07:40.295374000 UTC +00:00,
+  image_data: [36m[1mnil[0m[32m>[0m,
+ [32m#<Photo:0x00007f4d0d641070[0m
+  id: [34m[1m3[0m,
+  title: [31m[1m"[0m[31m[1m"[0m,
+  description: [36m[1mnil[0m,
+  created_at: Sun, 12 May 2024 20:08:51.568053000 UTC +00:00,
+  updated_at: Sun, 12 May 2024 20:08:53.681692000 UTC +00:00,
+  image_data:
+   [31m[1m"[0m[31m{\"id\":\"ccd5bea53f8e366d79142a3184ec04bd.jpg\",\"storage\":\"store\",\"metadata\":{\"filename\":\"christine-mendoza-HDDZOfX8pLA-unsplash.jpg\",\"size\":2557192,\"mime_type\":\"image/jpeg\",\"width\":4345,\"height\":2897}}[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Photo:0x00007f4d0d640fa8[0m
+  id: [34m[1m4[0m,
+  title: [31m[1m"[0m[31m[1m"[0m,
+  description: [36m[1mnil[0m,
+  created_at: Sun, 12 May 2024 20:09:17.439458000 UTC +00:00,
+  updated_at: Sun, 12 May 2024 20:09:19.035426000 UTC +00:00,
+  image_data:
+   [31m[1m"[0m[31m{\"id\":\"e34adbd1d80fc31b32659b842a82b4da.jpg\",\"storage\":\"store\",\"metadata\":{\"filename\":\"thanuj-mathew-Vyf873nsaxs-unsplash.jpg\",\"size\":4054437,\"mime_type\":\"image/jpeg\",\"width\":5404,\"height\":3170}}[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Photo:0x00007f4d0d640ee0[0m
+  id: [34m[1m5[0m,
+  title: [31m[1m"[0m[31m[1m"[0m,
+  description: [36m[1mnil[0m,
+  created_at: Sun, 12 May 2024 20:10:57.193459000 UTC +00:00,
+  updated_at: Sun, 12 May 2024 20:10:59.331745000 UTC +00:00,
+  image_data:
+   [31m[1m"[0m[31m{\"id\":\"12105073b5711786978d7e109c83241c.jpg\",\"storage\":\"store\",\"metadata\":{\"filename\":\"thanuj-mathew-Vyf873nsaxs-unsplash.jpg\",\"size\":4054437,\"mime_type\":\"image/jpeg\",\"width\":5404,\"height\":3170}}[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Photo:0x00007f4d0d640e18[0m
+  id: [34m[1m6[0m,
+  title: [31m[1m"[0m[31m[1m"[0m,
+  description: [36m[1mnil[0m,
+  created_at: Sun, 12 May 2024 20:11:33.611980000 UTC +00:00,
+  updated_at: Sun, 12 May 2024 20:11:36.121132000 UTC +00:00,
+  image_data:
+   [31m[1m"[0m[31m{\"id\":\"8d5bbae48e623f0906da52dce0fc442a.jpg\",\"storage\":\"store\",\"metadata\":{\"filename\":\"thanuj-mathew-Vyf873nsaxs-unsplash.jpg\",\"size\":4054437,\"mime_type\":\"image/jpeg\",\"width\":5404,\"height\":3170}}[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Photo:0x00007f4d0d640d50[0m
+  id: [34m[1m7[0m,
+  title: [31m[1m"[0m[31m[1m"[0m,
+  description: [36m[1mnil[0m,
+  created_at: Sun, 12 May 2024 20:13:15.014913000 UTC +00:00,
+  updated_at: Sun, 12 May 2024 20:13:17.063047000 UTC +00:00,
+  image_data:
+   [31m[1m"[0m[31m{\"id\":\"3223d5e1e5c8d779747658e4739ac358.jpg\",\"storage\":\"store\",\"metadata\":{\"filename\":\"thanuj-mathew-Vyf873nsaxs-unsplash.jpg\",\"size\":4054437,\"mime_type\":\"image/jpeg\",\"width\":5404,\"height\":3170}}[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Photo:0x00007f4d0d640c88[0m
+  id: [34m[1m8[0m,
+  title: [31m[1m"[0m[31m[1m"[0m,
+  description: [36m[1mnil[0m,
+  created_at: Sun, 12 May 2024 20:21:48.830539000 UTC +00:00,
+  updated_at: Sun, 12 May 2024 20:21:50.372501000 UTC +00:00,
+  image_data:
+   [31m[1m"[0m[31m{\"id\":\"b1280f6804827f28d1e1f736ccc839e8.jpg\",\"storage\":\"store\",\"metadata\":{\"filename\":\"christine-mendoza-HDDZOfX8pLA-unsplash.jpg\",\"size\":2557192,\"mime_type\":\"image/jpeg\",\"width\":4345,\"height\":2897}}[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Photo:0x00007f4d0d640bc0[0m
+  id: [34m[1m9[0m,
+  title: [31m[1m"[0m[31m[1m"[0m,
+  description: [36m[1mnil[0m,
+  created_at: Sun, 12 May 2024 20:25:33.173237000 UTC +00:00,
+  updated_at: Sun, 12 May 2024 20:25:38.571443000 UTC +00:00,
+  image_data: [31m[1m"[0m[31mhttps://res.cloudinary.com/dcvtrregd/image/upload/v1715545537/bopjyp2cokvpsih7xov0.jpg[0m[31m[1m"[0m[32m>[0m]

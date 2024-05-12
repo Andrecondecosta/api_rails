@@ -21,6 +21,10 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
 
     if @photo.save
+      image = params[:photo][:image]
+      result = Cloudinary::Uploader.upload(image.path)
+      @photo.update(image_data: result['secure_url'])
+
       render json: @photo, status: :created, location: @photo
     else
       render json: @photo.errors, status: :unprocessable_entity
@@ -30,6 +34,16 @@ class PhotosController < ApplicationController
   # PATCH/PUT /photos/1
   def update
     if @photo.update(photo_params)
+      if params[:photo][:image]
+        image = params[:photo][:image]
+        result = Cloudinary::Uploader.upload(image.path)
+        @photo.update(image_data: result['secure_url'])
+      end
+      if params[:photo][:category_id]
+        @category = Category.find(params[:photo][:category_id])
+        @category.photos << @photo unless @category.photos.include?(@photo)
+      end
+
       render json: @photo
     else
       render json: @photo.errors, status: :unprocessable_entity
@@ -38,6 +52,7 @@ class PhotosController < ApplicationController
 
   # DELETE /photos/1
   def destroy
+    Cloudinary::Uploader.destroy(@photo.image_data)
     @photo.destroy!
   end
 
@@ -49,7 +64,7 @@ class PhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def photo_params
-      params.require(:photo).permit(:title, :description)
+      params.require(:photo).permit(:title, :image)
     end
 end
 end

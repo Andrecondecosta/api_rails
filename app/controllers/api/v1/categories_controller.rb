@@ -21,6 +21,9 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     if @category.save
+      image = params[:category][:image]
+      result = Cloudinary::Uploader.upload(image.path)
+      @category.update(image_data: result['secure_url'])
       render json: @category, status: :created, location: @category
     else
       render json: @category.errors, status: :unprocessable_entity
@@ -30,6 +33,18 @@ class CategoriesController < ApplicationController
   # PATCH/PUT /categories/1
   def update
     if @category.update(category_params)
+      if params[:category][:image]
+        image = params[:category][:image]
+        result = Cloudinary::Uploader.upload(image.path)
+        @category.update(image_data: result['secure_url'])
+      end
+
+      if params[:category][:photo_ids]
+        new_photos = Photo.find(params[:category][:photo_ids])
+        new_photos.each do |new_photo|
+          @category.photos << new_photo unless @category.photos.include?(new_photo)
+        end
+      end
       render json: @category
     else
       render json: @category.errors, status: :unprocessable_entity
@@ -38,6 +53,7 @@ class CategoriesController < ApplicationController
 
   # DELETE /categories/1
   def destroy
+    Cloudinary::Uploader.destroy(@category.image_data)
     @category.destroy!
   end
 
@@ -49,7 +65,7 @@ class CategoriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def category_params
-      params.require(:category).permit(:name, :description)
+      params.require(:category).permit(:name, :image)
     end
 end
 end

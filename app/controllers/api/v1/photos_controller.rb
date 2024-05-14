@@ -22,7 +22,7 @@ class PhotosController < ApplicationController
 
     if @photo.save
       image = params[:photo][:image]
-      result = Cloudinary::Uploader.upload(image.path)
+      result = Cloudinary::Uploader.upload(image.path) if image
       @photo.update(image_data: result['secure_url'])
 
       render json: @photo, status: :created, location: @photo
@@ -52,8 +52,12 @@ class PhotosController < ApplicationController
 
   # DELETE /photos/1
   def destroy
-    Cloudinary::Uploader.destroy(@photo.image_data)
-    @photo.destroy!
+    @photo.category_photos.destroy_all
+    if @photo.image_data
+      public_id = File.basename(@photo.image_data, File.extname(@photo.image_data))
+      Cloudinary::Uploader.destroy(public_id)
+    end
+    @photo.destroy
   end
 
   private

@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
   include ImageUploader::Attachment(:image)
-  has_and_belongs_to_many :photos
+  has_many :category_photos
+  has_many :photos, through: :category_photos
 end

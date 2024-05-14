@@ -24,6 +24,7 @@ class CategoriesController < ApplicationController
       image = params[:category][:image]
       result = Cloudinary::Uploader.upload(image.path)
       @category.update(image_data: result['secure_url'])
+
       render json: @category, status: :created, location: @category
     else
       render json: @category.errors, status: :unprocessable_entity
@@ -52,10 +53,16 @@ class CategoriesController < ApplicationController
   end
 
   # DELETE /categories/1
-  def destroy
-    Cloudinary::Uploader.destroy(@category.image_data)
-    @category.destroy!
+    # DELETE /categories/1
+def destroy
+  if @category.image_data.present?
+    public_id = @category.image_data.split('/').last.split('.').first
+    Cloudinary::Uploader.destroy(public_id)
   end
+  @category.destroy!
+
+  head :no_content
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

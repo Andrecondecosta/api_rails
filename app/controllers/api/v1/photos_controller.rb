@@ -4,6 +4,7 @@ module Api
 class PhotosController < ApplicationController
   before_action :set_photo, only: %i[ show update destroy ]
 
+
   # GET /photos
   def index
     @photos = Photo.all
@@ -19,7 +20,6 @@ class PhotosController < ApplicationController
   # POST /photos
   def create
     @photo = Photo.new(photo_params)
-
     if @photo.save
       image = params[:photo][:image]
       result = Cloudinary::Uploader.upload(image.path) if image
@@ -52,18 +52,19 @@ class PhotosController < ApplicationController
 
   # DELETE /photos/1
   def destroy
-    @photo.category_photos.destroy_all
-    if @photo.image_data
-      public_id = File.basename(@photo.image_data, File.extname(@photo.image_data))
-      Cloudinary::Uploader.destroy(public_id)
-    end
+    public_id = File.basename(@photo.image_data, File.extname(@photo.image_data))
+    Cloudinary::Uploader.destroy(public_id)
     @photo.destroy
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
-      @photo = Photo.find(params[:id])
+      begin
+        @category = Category.find(params[:id])
+        @photo = @category.photos.find(params[:photo_id])
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: "Photo not found" }, status: :not_found
+      end
     end
 
     # Only allow a list of trusted parameters through.

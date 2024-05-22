@@ -5,7 +5,7 @@ module Api
 
       def index
         @category_photos = CategoryPhoto.all
-        render json: @category_photos
+render json: @category_photos.as_json(include: { photo: { only: [:id, :title, :image_data] }, category: { only: [:id, :name] } })
       end
 
       # POST /api/v1/category_photos
@@ -44,9 +44,17 @@ module Api
       end
       # DELETE /api/v1/category_photos/1
       def destroy
-        @category_photo = CategoryPhoto.find(params[:id])
-        @category_photo.destroy
-        head :no_content
+        begin
+          @category_photo = CategoryPhoto.find(params[:id])
+
+          if @category_photo.destroy
+            head :no_content
+          else
+            render json: { error: 'Failed to delete category photo' }, status: :internal_server_error
+          end
+        rescue ActiveRecord::RecordNotFound
+          render json: { error: 'CategoryPhoto not found' }, status: :not_found
+        end
       end
 
       private

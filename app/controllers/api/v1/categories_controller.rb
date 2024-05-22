@@ -54,15 +54,16 @@ class CategoriesController < ApplicationController
 
   # DELETE /categories/1
     # DELETE /categories/1
-def destroy
-  if @category.image_data.present?
-    public_id = @category.image_data.split('/').last.split('.').first
-    Cloudinary::Uploader.destroy(public_id)
-  end
-  @category.destroy!
-
-  head :no_content
-end
+    def destroy
+      if @category.image_data.present?
+        public_id = @category.image_data.split('/').last.split('.').first
+        Cloudinary::Uploader.destroy(public_id)
+      end
+      @category.category_photos.destroy_all
+      @category.destroy!
+      render json: { message: 'Category deleted successfully' }, status: :ok
+      head :no_content
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.

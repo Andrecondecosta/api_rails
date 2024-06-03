@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: cdphotografy-API
+    env: ruby
+    plan: free
+    buildCommand: "bundle install && rails db:migrate && rails assets:precompile"
+    startCommand: "bundle exec rails server -p $PORT"
+    envVars:
+      - key: DATABASE_URL
+        value: postgres://cdphotografy_api_user:[sua senha]@dpg-cpf12r7109ks73bbth30-a:5432/cdphotografy_api
+      - key: SECRET_KEY_BASE
+        value: 2ad9ae9cfa435cd1f850d3c3f5bd73e7f9087c3085e1e7390b8a8a1db48d0123b0f1791d0f774d6e743d98fd6c1e64d3e788a84839dc28fbc230f3b48ae4b564
+      - key: CLOUDINARY_CLOUD_NAME
+        value: dcvtrregd
+      - key: CLOUDINARY_API_KEY
+        value: 346958436335447
+      - key: CLOUDINARY_API_SECRET
+        value: RxPAJtKtOydFvGy9pOabWoZhAzM

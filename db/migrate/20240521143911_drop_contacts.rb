@@ -1,9 +1,17 @@
 class DropContacts < ActiveRecord::Migration[6.0]
   def up
-    drop_table :contacts
+    if table_exists?(:contacts)
+      drop_table :contacts
+    end
   end
 
   def down
-    raise ActiveRecord::IrreversibleMigration
+    create_table :contacts do |t|
+      t.string :name
+      t.string :email
+      t.text :message
+
+      t.timestamps
+    end
   end
 end

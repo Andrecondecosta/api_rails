@@ -9,7 +9,7 @@ services:
       - key: DATABASE_URL
         value: postgres://cdphotografy_api_user:LS8SLfDoqREdkbAUtFAy4k6RDiwThlS1@dpg-cpf12r7109ks73bbth30-a:5432/cdphotografy_api
       - key: SECRET_KEY_BASE
-        value: d8f8cc88c638c07f2bd074b2462a3af827b78174bb96cb7d9c5a7f1f1b51cba661ba273853c5cc6485a3e3182dee76bb65a3b123798da052ed3ff2d2490363cd
+        value: 1ac87055c5e92ccf2c19b4f95a56fef74c58e40342d5808b28b15069a011dbcd249261fe761cd69a7cc030e89a02e5da7e4292
       - key: CLOUDINARY_CLOUD_NAME
         value: dcvtrregd
       - key: CLOUDINARY_API_KEY

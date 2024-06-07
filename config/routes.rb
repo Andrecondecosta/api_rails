@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   namespace :api do
     namespace :v1 do
       resources :categories
@@ -7,14 +6,15 @@ Rails.application.routes.draw do
       resources :articles
       resources :category_photos, only: [:create, :destroy, :index]
       resources :contacts
+    end
   end
-  end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Define a rota para a verificação de saúde
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  # Rota para redirecionar todas as requisições não reconhecidas para o frontend
+  get '*path', to: 'frontend#index', constraints: ->(req) { !req.xhr? && req.format.html? }
+
+  # Define a rota raiz para servir o frontend
+  root 'frontend#index'
 end

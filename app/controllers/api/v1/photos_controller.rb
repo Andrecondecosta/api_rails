@@ -56,14 +56,19 @@ class PhotosController < ApplicationController
     Cloudinary::Uploader.destroy(public_id)
     @photo.destroy
   end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
       begin
-        @category = Category.find(params[:id])
-        @photo = @category.photos.find(params[:photo_id])
-      rescue ActiveRecord::RecordNotFound
-        render json: { error: "Photo not found" }, status: :not_found
+        if params[:category_id] && params[:photo_id]
+          @category = Category.find(params[:category_id])
+          @photo = @category.photos.find(params[:photo_id])
+        else
+          @photo = Photo.find(params[:id])
+        end
+      rescue ActiveRecord::RecordNotFound => e
+        render json: { error: e.message }, status: :not_found
       end
     end
 
@@ -71,6 +76,8 @@ class PhotosController < ApplicationController
     def photo_params
       params.require(:photo).permit(:title, :image)
     end
+
+
 end
 end
 end

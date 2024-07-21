@@ -89,4 +89,5 @@ config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
+  config.hosts << "api-rails-9vku.onrender.com"
 end

@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   # Define a rota raiz para servir o frontend
   root 'frontend#index'
+
+   get '/callback', to: 'frontend#index'
 end

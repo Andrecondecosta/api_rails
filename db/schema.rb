@@ -11,6 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2024_07_02_180246) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -55,8 +58,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_02_180246) do
   end
 
   create_table "category_photos", force: :cascade do |t|
-    t.integer "category_id", null: false
-    t.integer "photo_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "photo_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_category_photos_on_category_id"
@@ -71,7 +74,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_02_180246) do
     t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.json "photo_ids", default: []
+    t.jsonb "photo_ids", default: []
   end
 
   create_table "photos", force: :cascade do |t|
